@@ -12,7 +12,7 @@ function App() {
         throw new Error("Network response was not ok");
       }
       const data = await response.json();
-      setJoke(;
+      setJoke(`${data.setup}/n ${data.punchline}`);
       // setPunchline(`${data.punchline}  😂😂`);
     } catch (error) {
       console.error("Error fetching joke:", error);
@@ -24,9 +24,8 @@ function App() {
       <h1>Random Joke Generator</h1>
       <button onClick={fetchJoke}>Next Joke</button>
       <p>
-        {joke.setup} <br />
+        {joke} <br />
       </p>
-      <p>{joke.punchline}</p>
     </div>
   );
 }
